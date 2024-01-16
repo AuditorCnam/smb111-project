@@ -73,3 +73,38 @@ curl "https://simple-interest.azurewebsites.net/api/simple-interest?code=<token>
 3500.0000000000005
 ```
 
+
+## IA vision
+
+après avoir créer les ressources nécessaire a la detection par IA, il est possible d'envoyer des requête avec le token de sa ressource IA service 
+
+```bash
+curl -H "Ocp-Apim-Subscription-Key: <token>" -H "Content-Type: application/json" "https://ia-resources-services.cognitiveservices.azure.com/computervision/imageanalysis:analyze?features=caption,read&model-version=latest&language=en&api-version=2023-10-01" -d "{'url':'https://referenseo.com/wp-content/uploads/2019/03/image-attractive-960x540.jpg'}"
+```
+
+Reponse de l'API 
+
+```json
+{
+    "modelVersion": "2023-10-01",
+    "captionResult": {
+        "text": "an elephant flying in the sky",
+        "confidence": 0.700043797492981
+    },
+    "metadata": {
+        "width": 960,
+        "height": 540
+    },
+    "readResult": {
+        "blocks": []
+    }
+}
+```
+
+Objectif :
+- créer un site web
+- envoyer des images sur un blob
+- délanchement d'un appel vers https://ia-resources-services.cognitiveservices.azure.com/computervision/imageanalysis
+- obtenir la description et l'envoyer dans une base cosmodb
+- afficher la description de l'image avec l'image sur le site
+  
