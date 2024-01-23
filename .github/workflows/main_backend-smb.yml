@@ -69,7 +69,7 @@ jobs:
         with:
           app-name: 'backend-smb'
           slot-name: 'Production'
-          package: ${{ env.AZURE_FUNCTIONAPP_BLOBSTORAGE_PACKAGE_PATH }}
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D31779FCD86B4F01AF74D7F189CE29EF }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
