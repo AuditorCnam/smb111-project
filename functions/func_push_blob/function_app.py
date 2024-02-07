@@ -1,4 +1,4 @@
-import logging
+#import logging
 import requests
 import azure.functions as func
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
@@ -24,7 +24,7 @@ blob_client = blob_service_client.get_blob_client(container=CONTAINER_NAME, blob
 
 @app.route(route="blob_push", auth_level=func.AuthLevel.FUNCTION)
 def blob_push(req: func.HttpRequest) -> func.HttpResponse:
-    logging.info('Python HTTP trigger function for push blob processed a request.')
+    #logging.info('Python HTTP trigger function for push blob processed a request.')
 
     img = req.params.get('img')
     if not img:
