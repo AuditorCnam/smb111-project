@@ -8,6 +8,8 @@ import os
 
 app = func.FunctionApp()
 
+# Hello changement
+
 IA_SERVICE_URL = os.environ.get("IA_SERVICE_URL")
 # Configuration du client Azure Blob Storage
 CONNECTION_STRING = os.environ.get("CONNECTION_STRING")
