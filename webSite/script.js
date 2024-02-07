@@ -23,7 +23,8 @@ fileInput.addEventListener("change", function (event) {
         // Par exemple, pour afficher l'image dans une balise img
         let imageElement = document.createElement('img');
         imageElement.src = e.target.result;
-        document.body.appendChild(imageElement);
+        document.body.appendChild(imageElement)
+        fetch()
     }
     reader.readAsDataURL(this.files[0]);
 });  
