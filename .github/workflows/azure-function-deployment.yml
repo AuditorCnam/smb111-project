@@ -129,3 +129,5 @@ jobs:
           app-name: ${{ github.event.inputs.GIT_FunctionApp_Name }}
           package: ${{ github.workspace }}/${{ github.event.inputs.GIT_FunctionApp_PATH }}
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE_TEST }}
+          scm-do-build-during-deployment: true
+          enable-oryx-build: true
