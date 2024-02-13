@@ -101,6 +101,55 @@ Reponse de l'API
 }
 ```
 
+## Requête pour upload dans la base blob 
+
+Groupe de ressource :
+1. créer un groupe de ressource 
+2. générer un jeton accès partagé avec des droits sur les conatiners
+3. créer un container blob
+4. gérer les droits CORS de la ressources 
+
+Upload fichier : 
+- depuis site web javascript : 
+  
+```js
+        let file = document.getElementById('fileInput');
+
+        const fileName = file.name ; // nom du fichier récupérer via un inputfile HTML
+        const azureContainerName = <Nom-du-container>;
+        const sasToken = <Token-du-groupe-de-ressource>
+        const azureStorageAccountName = <Nom-compte-de-ressource>;
+        
+        const url = `https://${azureStorageAccountName}.blob.core.windows.net/${azureContainerName}/${fileName}${sasToken}`;
+    
+        try {
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'x-ms-blob-type': 'BlockBlob',
+                    'Content-Type': file.type
+                },
+                body: file
+            });
+    
+            if (response.status === 201) {
+                console.log("File uploaded successfully");
+            } else {
+                console.error("Upload failed", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error uploading file", error);
+        }
+```
+
+- requête curl : 
+
+```bash
+
+curl -H "x-ms-blob-type: BlockBlob" -H "Content-Type: image/png" https://${azureStorageAccountName}.blob.core.windows.net/${azureContainerName}/${fileName}${sasToken} -d '{"data": image.png}'
+
+```
+
 Objectif :
 - créer un site web
 - envoyer des images sur un blob
