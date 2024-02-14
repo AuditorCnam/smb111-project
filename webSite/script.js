@@ -35,9 +35,8 @@ fileInput.addEventListener("change", async function (event) {
     
         const fileName = file.name;
         const azureContainerName = 'blob-container';
-        const sasToken = '?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiyx&se=2024-02-13T23:13:58Z&st=2024-02-13T15:13:58Z&spr=https&sig=KZkHmv3gcMHB8AylgoOaCkuryNyxFcZ09ILXvpsN8wU%3D'; // Assurez-vous que le SAS est URL encoded
+        const sasToken = '?sp=raw&st=2024-02-14T11:57:39Z&se=2024-03-22T19:57:39Z&spr=https&sv=2022-11-02&sr=c&sig=%2F9v4J09q3W5sN8k2Ggy9jhgihgVPorWZ%2B3mOBS0ovP4%3D'; // Assurez-vous que le SAS est URL encoded
         const azureStorageAccountName = 'myresourcesgroupb3b7';
-        
         const url = `https://${azureStorageAccountName}.blob.core.windows.net/${azureContainerName}/${fileName}${sasToken}`;
     
         try {
